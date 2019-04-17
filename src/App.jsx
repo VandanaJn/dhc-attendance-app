@@ -4,13 +4,23 @@ import Container from 'react-bootstrap/Container'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Navbar from 'react-bootstrap/Navbar'
 import NavLink from 'react-bootstrap/NavLink'
-import Route from 'react-router-dom/Route'
-import BrowserRouter from 'react-router-dom/BrowserRouter'
+import { BrowserRouter, Route} from 'react-router-dom'
 import HomePage from './HomePage'
 import Events from './Events'
+import Participants from './Participants'
+
 
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      events: [],
+      participants: [],
+      attendance: []
+    }
+  }
+
   render() {
     return (
       <div>
@@ -26,12 +36,14 @@ class App extends Component {
         <Navbar>
           <NavLink href="home">Home</NavLink>
           <NavLink href="events">Events</NavLink>
+          <NavLink href="participants">Participants</NavLink>
         </Navbar>
         <Container>
           <BrowserRouter>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/home" component={HomePage} />
-            <Route exact path="/events" component={Events} />
+              <Route exact path="/" render={()=><HomePage  something={"A"} />}/>
+              <Route exact path="/home" render={()=><HomePage  something={"B"} />}/>
+              <Route exact path="/events" render={()=><Events  something={"C"} />}/>
+              <Route exact path="/participants" render={()=><Participants  something={"D"} />}/>
           </BrowserRouter>
         </Container>
       </div>
