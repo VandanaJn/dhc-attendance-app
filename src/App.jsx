@@ -17,11 +17,11 @@ class App extends Component {
     this.state = {
       events: [
         { EventId: 1, EventName: "Event1" }, { EventId: 2, EventName: "Event2" },
-        { EventId: 3, EventName: "Event1" }, { EventId: 4, EventName: "Event2" },
-        { EventId: 5, EventName: "Event1" }, { EventId: 6, EventName: "Event2" },
-        { EventId: 7, EventName: "Event1" }, { EventId: 8, EventName: "Event2" },
-        { EventId: 9, EventName: "Event1" }, { EventId: 10, EventName: "Event2" },
-        { EventId: 11, EventName: "Event1" }, { EventId: 12, EventName: "Event2" }],
+        { EventId: 3, EventName: "Event3" }, { EventId: 4, EventName: "Event4" },
+        { EventId: 5, EventName: "Event5" }, { EventId: 6, EventName: "Event6" },
+        { EventId: 7, EventName: "Event7" }, { EventId: 8, EventName: "Event8" },
+        { EventId: 9, EventName: "Event9" }, { EventId: 10, EventName: "Event10" },
+        { EventId: 11, EventName: "Event11" }, { EventId: 12, EventName: "Event12" }],
       participants: [],
       attendance: []
     }

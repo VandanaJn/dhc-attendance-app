@@ -4,6 +4,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import BootstrapTable from 'react-bootstrap-table-next';
 import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
 import paginationFactory from 'react-bootstrap-table2-paginator';
+import cellEditFactory from 'react-bootstrap-table2-editor';
 
 
 
@@ -36,7 +37,9 @@ class Events extends Component {
                         hover
                         keyField='EventId' data={this.props.events} columns={columns} 
                         filter={filterFactory()} 
-                        pagination={ paginationFactory() }/>
+                        pagination={ paginationFactory() }
+                        cellEdit={ cellEditFactory({ mode: 'dbclick' }) }
+                        />
                 </div>
             </div>
         );
