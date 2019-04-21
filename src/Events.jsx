@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import BootstrapTable from 'react-bootstrap-table-next';
+import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
+import paginationFactory from 'react-bootstrap-table2-paginator';
+
+
 
 const columns = [{
     dataField: 'EventId',
@@ -10,8 +15,8 @@ const columns = [{
 }, {
     dataField: 'EventName',
     text: 'Product Name',
-    sort: true
-
+    sort: true,
+    filter: textFilter()
 }];
 
 class Events extends Component {
@@ -24,9 +29,15 @@ class Events extends Component {
         return (
             <div>
                 <h4>
-                    This is Events Page
-                    <BootstrapTable keyField='EventId' data={this.props.events} columns={columns} />
-                </h4>
+                    This is Events Page</h4>
+                <div className="container" style={{ marginTop: 50 }}>
+                    <BootstrapTable
+                        striped
+                        hover
+                        keyField='EventId' data={this.props.events} columns={columns} 
+                        filter={filterFactory()} 
+                        pagination={ paginationFactory() }/>
+                </div>
             </div>
         );
     }

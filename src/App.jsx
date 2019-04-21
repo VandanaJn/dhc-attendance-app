@@ -15,7 +15,13 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      events: [{ EventId: 1, EventName: "Event1" }, { EventId: 2, EventName: "Event2" }],
+      events: [
+        { EventId: 1, EventName: "Event1" }, { EventId: 2, EventName: "Event2" },
+        { EventId: 3, EventName: "Event1" }, { EventId: 4, EventName: "Event2" },
+        { EventId: 5, EventName: "Event1" }, { EventId: 6, EventName: "Event2" },
+        { EventId: 7, EventName: "Event1" }, { EventId: 8, EventName: "Event2" },
+        { EventId: 9, EventName: "Event1" }, { EventId: 10, EventName: "Event2" },
+        { EventId: 11, EventName: "Event1" }, { EventId: 12, EventName: "Event2" }],
       participants: [],
       attendance: []
     }
