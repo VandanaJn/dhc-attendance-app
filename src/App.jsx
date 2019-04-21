@@ -15,7 +15,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      events: [],
+      events:["Event1", "Event2", "Event3"],
       participants: [],
       attendance: []
     }
@@ -42,7 +42,7 @@ class App extends Component {
           <BrowserRouter>
               <Route exact path="/" render={()=><HomePage  something={"A"} />}/>
               <Route exact path="/home" render={()=><HomePage  something={"B"} />}/>
-              <Route exact path="/events" render={()=><Events  something={"C"} />}/>
+              <Route exact path="/events" render={()=><Events  events={this.state.events} />}/>
               <Route exact path="/participants" render={()=><Participants  something={"D"} />}/>
           </BrowserRouter>
         </Container>
