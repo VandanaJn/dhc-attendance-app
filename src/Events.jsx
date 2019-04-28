@@ -6,8 +6,6 @@ import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import cellEditFactory from 'react-bootstrap-table2-editor';
 
-
-
 const columns = [{
     dataField: 'EventId',
     text: 'Event ID',
@@ -35,7 +33,9 @@ class Events extends Component {
                     <BootstrapTable
                         striped
                         hover
-                        keyField='EventId' data={this.props.events} columns={columns} 
+                        keyField='EventId' 
+                        data={this.props.events} 
+                        columns={columns} 
                         filter={filterFactory()} 
                         pagination={ paginationFactory() }
                         cellEdit={ cellEditFactory({ mode: 'dbclick' }) }
