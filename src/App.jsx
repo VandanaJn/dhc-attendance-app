@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Navbar from 'react-bootstrap/Navbar'
 import NavLink from 'react-bootstrap/NavLink'
-import {  Route, Switch } from 'react-router-dom'
+import { Switch, Route } from 'react-router'    
 import HomePage from './HomePage'
 import Events from './Events'
 import Participants from './Participants'
@@ -40,16 +40,16 @@ class App extends Component {
           </Jumbotron>
         </Container>
         <Navbar>
-          <NavLink href="home">Home</NavLink>
-          <NavLink href="events">Events</NavLink>
-          <NavLink href="participants">Participants</NavLink>
+          <NavLink href="#/home">Home</NavLink>
+          <NavLink href="#/events">Events</NavLink>
+          <NavLink href="#/participants">Participants</NavLink>
         </Navbar>
         <Container>
          <Switch>
-            <Route exact path="/" render={() => <HomePage something={"A"} />} />
             <Route exact path="/home" render={() => <HomePage something={"B"} />} />
             <Route exact path="/events" render={() => <Events events={this.state.events} />} />
             <Route exact path="/participants" render={() => <Participants something={"D"} />} />
+            <Route exact path="/" render={() => <HomePage something={"A"} />} />
             </Switch>
         </Container>
       </div>
