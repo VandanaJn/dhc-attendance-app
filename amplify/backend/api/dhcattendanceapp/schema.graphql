@@ -1,0 +1,22 @@
+type Event @model {
+  id: ID!
+  name: String!
+  startdate: AWSDate!
+  enddate: AWSDate
+  hours: Float
+  attendees: [Attendance] @connection(name: "EventAttendance")
+}
+
+type Attendee @model {
+  id: ID!
+  firstname: String!
+  lastname: String!
+  events: [Attendance] @connection(name: "AttendeeAttendance")
+}
+
+type Attendance @model{
+  id: ID!
+  event: Event @connection(name: "EventAttendance")
+  Attendee: Attendee @connection(name: "AttendeeAttendance")
+  hours: Float
+}

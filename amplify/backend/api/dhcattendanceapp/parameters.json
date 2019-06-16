@@ -1,0 +1,10 @@
+{
+    "AppSyncApiName": "dhcattendanceapp",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcognito8d3dc07e",
+            "Outputs.UserPoolId"
+        ]
+    }
+}
