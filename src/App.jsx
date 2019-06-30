@@ -63,7 +63,7 @@ class App extends Component {
         <Container>
           <Switch>
             <Route exact path="/home" render={() => <HomePage something={"B"} />} />
-            <Route exact path="/events" render={() => <Events events={this.state.events} />} />
+            <Route exact path="/events" render={() => <Events events={this.state.events} refreshEvents={this.refreshEvents}/>} />
             <Route exact path="/participants" render={() => <Participants something={"D"} />} />
             <Route exact path="/" render={() => <HomePage something={"A"} />} />
           </Switch>
