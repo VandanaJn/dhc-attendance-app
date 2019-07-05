@@ -29,7 +29,6 @@ class App extends Component {
     console.log('about to refresh called')
     const data = await API.graphql(graphqlOperation(listEvents))
     
-    debugger
     console.log('refresh called')
     this.setState({
       
