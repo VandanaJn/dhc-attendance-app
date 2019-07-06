@@ -41,17 +41,11 @@ class Events extends Component {
         try {
             var items = this.state.changedIds.rowsIdsArray.filter(x => x.id === value);
             items.forEach(element => {
-
-
                 this.updateEventInGraphql(value, element.name, element.value)
             });
             console.log(items.length)
-
-            this.props.refreshEvents()
             let arr = {};
             arr.rowsIdsArray = this.state.changedIds.rowsIdsArray.filter(x => x.id !== value)
-
-
             this.setState({ changedIds: arr })
 
         } catch (err) {
@@ -69,8 +63,6 @@ class Events extends Component {
                             { id: id, [name]: value }
                     }
                 ))
-            this.props.refreshEvents()
-
         } catch (err) {
             console.log('error: ', err)
         }
@@ -82,16 +74,23 @@ class Events extends Component {
                 style={{ backgroundColor: "#fafafa" }}
                 contentEditable
                 suppressContentEditableWarning
-                onBlur={e => {
-                    this.setState({ rowsIdsArray: this.state.changedIds.rowsIdsArray.push({ id: cellInfo.row.id, name: cellInfo.column.id, value: e.target.innerHTML }) });
+                onKeyUp={e => {
+                    this.pushtoArray(cellInfo, e);
                 }}
                 dangerouslySetInnerHTML={{
                     __html: this.props.events[cellInfo.index][cellInfo.column.id]
                 }}
-
-
             />
         );
+    }
+
+    pushtoArray(cellInfo, e) {
+        let arr = {};
+        arr.rowsIdsArray = this.state.changedIds.rowsIdsArray.filter(function(value, index, arr){
+            return !(value.id===cellInfo.row.id && value.name===cellInfo.column.id)
+        });
+        arr.rowsIdsArray.push({ id: cellInfo.row.id, name: cellInfo.column.id, value: e.target.innerHTML });
+        this.setState({ changedIds: arr })
     }
 
     render() {
